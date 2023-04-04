@@ -1,19 +1,37 @@
 import 'package:ellipsized_text/ellipsized_text.dart';
 import 'package:flutter/material.dart';
 
+/// Main package class.\
+/// One line ellipsized text with the ability to adjust the position of the ellipsis.
 class EllipsizedText extends LeafRenderObjectWidget {
+  /// [text] Text that will shrink into three dots when it reaches a larger size.\
+  /// [type] Type of ellipsis text position.\
+  /// [ellipsis] Text of ellipsis.\
+  /// [style] Text style.\
+  /// [align] Text slign.
   const EllipsizedText(
     this.text, {
     Key? key,
     this.type = EllipsisType.end,
-    this.align,
+    this.ellipsis = "...",
     this.style,
+    this.align = TextAlign.start,
   }) : super(key: key);
 
+  /// Text that will shrink into three dots when it reaches a larger size.
   final String text;
+
+  /// Type of ellipsis text position.
   final EllipsisType type;
-  final TextAlign? align;
+
+  /// Text of ellipsis.
+  final String ellipsis;
+
+  /// Text style.
   final TextStyle? style;
+
+  /// Text slign.
+  final TextAlign align;
 
   @override
   RenderObject createRenderObject(BuildContext context) =>
@@ -28,7 +46,8 @@ class EllipsizedText extends LeafRenderObjectWidget {
 }
 
 class EllipsizedTextRenderObject extends RenderBox {
-  final TextPainter _textPainter = TextPainter(textDirection: TextDirection.ltr);
+  final TextPainter _textPainter =
+      TextPainter(textDirection: TextDirection.ltr);
   BoxConstraints _constraints = const BoxConstraints();
   EllipsizedText _widget = const EllipsizedText("");
   bool _widgetChanged = false;
@@ -36,12 +55,13 @@ class EllipsizedTextRenderObject extends RenderBox {
   set widget(EllipsizedText widget) {
     if (this._widget.text == widget.text &&
         this._widget.type == widget.type &&
-        this._widget.align == widget.align &&
-        this._widget.style == widget.style) return;
+        this._widget.ellipsis == widget.ellipsis &&
+        this._widget.style == widget.style &&
+        this._widget.align == widget.align) return;
 
     this._widgetChanged = true;
     this._widget = widget;
-    markNeedsLayout();
+    super.markNeedsLayout();
   }
 
   double _layoutText({
@@ -49,8 +69,13 @@ class EllipsizedTextRenderObject extends RenderBox {
     required double minWidth,
   }) {
     final String text = this._widget.text;
+    final String ellipsis = this._widget.ellipsis;
     final TextAlign? align = this._widget.align;
-    final TextStyle? style = this._widget.style;
+    final TextStyle style = TextStyle(
+      fontSize: this._widget.style?.fontSize ?? 14,
+      color: this._widget.style?.color ?? Colors.black,
+      fontWeight: this._widget.style?.fontWeight ?? FontWeight.w400,
+    );
 
     String ellipsizedText = "";
 
@@ -61,7 +86,8 @@ class EllipsizedTextRenderObject extends RenderBox {
             text.length - length,
             text.length,
           );
-          if (length != text.length) ellipsizedText = "...$ellipsizedText";
+          if (length != text.length)
+            ellipsizedText = "$ellipsis$ellipsizedText";
         }
         break;
 
@@ -77,7 +103,7 @@ class EllipsizedTextRenderObject extends RenderBox {
               text.length - startText.length,
               text.length,
             );
-            ellipsizedText = "$startText...$endText";
+            ellipsizedText = "$startText$ellipsis$endText";
           }
         }
         break;
@@ -85,7 +111,8 @@ class EllipsizedTextRenderObject extends RenderBox {
       case EllipsisType.end:
         if (length > 0) {
           ellipsizedText = text.substring(0, length);
-          if (length != text.length) ellipsizedText = "$ellipsizedText...";
+          if (length != text.length)
+            ellipsizedText = "$ellipsizedText$ellipsis";
         }
         break;
     }
@@ -138,8 +165,9 @@ class EllipsizedTextRenderObject extends RenderBox {
 
   @override
   void performLayout() {
-    if (!this._widgetChanged && this._constraints == this.constraints && this.hasSize)
-      return;
+    if (!this._widgetChanged &&
+        this._constraints == this.constraints &&
+        this.hasSize) return;
 
     this._widgetChanged = false;
     this._constraints = this.constraints;
