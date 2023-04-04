@@ -2,7 +2,7 @@ import 'package:ellipsized_text/ellipsized_text.dart';
 import 'package:flutter/material.dart';
 
 /// Main package class.\
-/// One line ellipsized text with the ability to adjust the position of the ellipsis.
+/// ✏️ One line ellipsized text with the ability to adjust the position of the ellipsis.
 class EllipsizedText extends LeafRenderObjectWidget {
   /// [text] Text that will shrink into three dots when it reaches a larger size.\
   /// [type] Type of ellipsis text position.\
@@ -46,8 +46,7 @@ class EllipsizedText extends LeafRenderObjectWidget {
 }
 
 class EllipsizedTextRenderObject extends RenderBox {
-  final TextPainter _textPainter =
-      TextPainter(textDirection: TextDirection.ltr);
+  final TextPainter _textPainter = TextPainter(textDirection: TextDirection.ltr);
   BoxConstraints _constraints = const BoxConstraints();
   EllipsizedText _widget = const EllipsizedText("");
   bool _widgetChanged = false;
@@ -86,8 +85,7 @@ class EllipsizedTextRenderObject extends RenderBox {
             text.length - length,
             text.length,
           );
-          if (length != text.length)
-            ellipsizedText = "$ellipsis$ellipsizedText";
+          if (length != text.length) ellipsizedText = "$ellipsis$ellipsizedText";
         }
         break;
 
@@ -111,8 +109,7 @@ class EllipsizedTextRenderObject extends RenderBox {
       case EllipsisType.end:
         if (length > 0) {
           ellipsizedText = text.substring(0, length);
-          if (length != text.length)
-            ellipsizedText = "$ellipsizedText$ellipsis";
+          if (length != text.length) ellipsizedText = "$ellipsizedText$ellipsis";
         }
         break;
     }
@@ -165,9 +162,8 @@ class EllipsizedTextRenderObject extends RenderBox {
 
   @override
   void performLayout() {
-    if (!this._widgetChanged &&
-        this._constraints == this.constraints &&
-        this.hasSize) return;
+    if (!this._widgetChanged && this._constraints == this.constraints && this.hasSize)
+      return;
 
     this._widgetChanged = false;
     this._constraints = this.constraints;
