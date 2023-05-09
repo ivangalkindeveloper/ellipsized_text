@@ -46,6 +46,6 @@ EllipsizedText(
 ```
 ![](https://github.com/ivangalkindeveloper/ellipsized_text/blob/master/images/ellipsized_text_end.png)
 
-## Additional information
+## Additional Information
 For more details see example project.\
 And feel free to open an issue if you find any bugs or errors or suggestions.
