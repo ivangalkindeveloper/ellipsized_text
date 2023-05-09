@@ -1,6 +1,18 @@
-# Ellipsized text
+# Ellipsized Text
 ✏️ The package provides a one line ellipsized text with the ability to adjust the position of the ellipsis.\
 A very handy widget for shortening public addresses of crypto wallets or other information abbreviations.
+
+<div align="center">
+
+  <a href="">![Pub Likes](https://img.shields.io/pub/likes/ellipsized_text?color=success)</a>
+  <a href="">![Pub Version](https://img.shields.io/pub/v/ellipsized_text?color=important)</a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+
+</div>
+
+<div align="center">
+  <a href="https://www.buymeacoffee.com/ivangalkin" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="32px" width= "128px"></a>
+</div>
 
 ## Usage
 The widget is easy to use:

@@ -70,7 +70,7 @@ class EllipsizedTextRenderObject extends RenderBox {
   }) {
     final String text = this._widget.text;
     final String ellipsis = this._widget.ellipsis;
-    final TextAlign? align = this._widget.align;
+    final TextAlign align = this._widget.align;
     final TextStyle style = TextStyle(
       fontSize: this._widget.style?.fontSize ?? 14,
       color: this._widget.style?.color ?? Colors.black,
@@ -121,7 +121,7 @@ class EllipsizedTextRenderObject extends RenderBox {
       text: ellipsizedText,
       style: style,
     );
-    this._textPainter.textAlign = align ?? TextAlign.start;
+    this._textPainter.textAlign = align;
     this._textPainter.layout(
           minWidth: minWidth,
           maxWidth: double.infinity,
