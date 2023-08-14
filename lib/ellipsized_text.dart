@@ -3,5 +3,5 @@
 
 library ellipsized_text;
 
+export 'src/ellipsis_type.dart';
 export 'src/ellipsized_text.dart';
-export 'src/enum.dart';

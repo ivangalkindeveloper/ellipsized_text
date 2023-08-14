@@ -23,13 +23,13 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Ellipsized Text"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
+      body: const Padding(
+        padding: EdgeInsets.all(24),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
-            children: const <Widget>[
+            children: <Widget>[
               Text(
                 "EllipsisType: start",
                 style: TextStyle(fontSize: 18),

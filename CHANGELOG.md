@@ -1,3 +1,7 @@
+## 1.1.0
+* Small refactoring;
+* Adding text direction.
+
 ## 1.0.2
 * Fix readme.
 
