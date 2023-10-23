@@ -10,7 +10,7 @@ class EllipsizedTextRenderObject extends RenderBox {
   EllipsizedText _widget = const EllipsizedText("");
   bool _widgetChanged = false;
 
-  void widget(
+  void render(
     BuildContext context,
     EllipsizedText widget,
   ) {
@@ -169,6 +169,7 @@ class EllipsizedTextRenderObject extends RenderBox {
       this._textPainter.width,
       this._textPainter.height,
     );
+
     return this.constraints.constrain(size);
   }
 
@@ -184,9 +185,11 @@ class EllipsizedTextRenderObject extends RenderBox {
 
   @override
   void performLayout() {
-    if (!this._widgetChanged &&
+    if (this._widgetChanged == false &&
         this._constraints == this.constraints &&
-        this.hasSize) return;
+        this.hasSize) {
+      return;
+    }
 
     this._widgetChanged = false;
     this._constraints = this.constraints;

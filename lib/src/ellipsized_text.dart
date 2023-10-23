@@ -42,7 +42,7 @@ class EllipsizedText extends LeafRenderObjectWidget {
   @override
   RenderObject createRenderObject(BuildContext context) =>
       EllipsizedTextRenderObject()
-        ..widget(
+        ..render(
           context,
           this,
         );
@@ -52,7 +52,7 @@ class EllipsizedText extends LeafRenderObjectWidget {
     BuildContext context,
     EllipsizedTextRenderObject renderObject,
   ) =>
-      renderObject.widget(
+      renderObject.render(
         context,
         this,
       );

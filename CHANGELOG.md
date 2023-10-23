@@ -1,3 +1,7 @@
+## 1.1.1
+* Small refactoring;
+* Upgrade dependencies.
+
 ## 1.1.0
 * Small refactoring;
 * Adding text direction.
