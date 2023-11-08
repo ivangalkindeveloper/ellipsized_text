@@ -13,13 +13,13 @@ class EllipsizedText extends LeafRenderObjectWidget {
   /// [direction] Text direction.
   const EllipsizedText(
     this.text, {
-    Key? key,
+    super.key,
     this.type = EllipsisType.end,
     this.ellipsis = "...",
     this.style,
     this.align,
     this.direction,
-  }) : super(key: key);
+  });
 
   /// Text that will shrink into three dots when it reaches a larger size.
   final String text;

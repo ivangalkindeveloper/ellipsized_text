@@ -1,3 +1,6 @@
+## 1.1.2
+* Linter fixes.
+
 ## 1.1.1
 * Small refactoring;
 * Upgrade dependencies.
