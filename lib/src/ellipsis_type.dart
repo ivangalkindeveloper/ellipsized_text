@@ -10,7 +10,10 @@ enum EllipsisType {
     String value,
   ) {
     final EllipsisType? result = EllipsisType.values.firstWhereOrNull(
-      (EllipsisType element) => element.name == value,
+      (
+        EllipsisType element,
+      ) =>
+          element.name == value,
     );
 
     if (result == null) {

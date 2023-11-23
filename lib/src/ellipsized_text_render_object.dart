@@ -3,9 +3,7 @@ import 'package:ellipsized_text/src/ellipsis_type.dart';
 import 'package:flutter/material.dart';
 
 class EllipsizedTextRenderObject extends RenderBox {
-  TextPainter _textPainter = TextPainter(
-    textDirection: TextDirection.ltr,
-  );
+  TextPainter _textPainter = TextPainter();
   BoxConstraints _constraints = const BoxConstraints();
   EllipsizedText _widget = const EllipsizedText("");
   bool _widgetChanged = false;
@@ -18,8 +16,8 @@ class EllipsizedTextRenderObject extends RenderBox {
         this._widget.type == widget.type &&
         this._widget.ellipsis == widget.ellipsis &&
         this._widget.style == widget.style &&
-        this._widget.align == widget.align &&
-        this._widget.direction == widget.direction) {
+        this._widget.textAlign == widget.textAlign &&
+        this._widget.textDirection == widget.textDirection) {
       return;
     }
 
@@ -27,7 +25,12 @@ class EllipsizedTextRenderObject extends RenderBox {
     final TextDirection textDirection = Directionality.of(context);
 
     this._textPainter = TextPainter(
-      textDirection: widget.direction ?? textDirection,
+      textDirection: widget.textDirection ?? textDirection,
+      locale: widget.locale,
+      textScaleFactor: widget.textScaleFactor ?? 1.0,
+      textWidthBasis: widget.textWidthBasis ?? defaultTextStyle.textWidthBasis,
+      textHeightBehavior:
+          widget.textHeightBehavior ?? defaultTextStyle.textHeightBehavior,
     );
     this._widget = EllipsizedText(
       widget.text,
@@ -61,8 +64,15 @@ class EllipsizedTextRenderObject extends RenderBox {
         fontFamilyFallback: widget.style?.fontFamilyFallback,
         overflow: widget.style?.overflow,
       ),
-      align: (widget.align ?? defaultTextStyle.textAlign) ?? TextAlign.start,
-      direction: widget.direction ?? textDirection,
+      strutStyle: widget.strutStyle,
+      textAlign:
+          (widget.textAlign ?? defaultTextStyle.textAlign) ?? TextAlign.start,
+      textDirection: widget.textDirection ?? textDirection,
+      locale: widget.locale,
+      textScaleFactor: widget.textScaleFactor,
+      textWidthBasis: widget.textWidthBasis ?? defaultTextStyle.textWidthBasis,
+      textHeightBehavior:
+          widget.textHeightBehavior ?? defaultTextStyle.textHeightBehavior,
     );
     this._widgetChanged = true;
     super.markNeedsLayout();
@@ -76,7 +86,7 @@ class EllipsizedTextRenderObject extends RenderBox {
     final EllipsisType type = this._widget.type;
     final String ellipsis = this._widget.ellipsis;
     final TextStyle style = this._widget.style!;
-    final TextAlign align = this._widget.align!;
+    final TextAlign align = this._widget.textAlign!;
 
     String ellipsizedText = "";
 

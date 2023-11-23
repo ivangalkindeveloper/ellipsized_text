@@ -1,6 +1,6 @@
 name: ellipsized_text
 description: ✏️ One line ellipsized text with the ability to adjust the position of the ellipsis.
-version: 1.1.2
+version: 1.2.0
 repository: https://github.com/ivangalkindeveloper/ellipsized_text
 
 environment:

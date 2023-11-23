@@ -1,3 +1,6 @@
+## 1.2.0
+* Addings strutStyle, locale, textScaleFactor, textWidthBasis, textHeightBehavior.
+
 ## 1.1.2
 * Linter fixes.
 

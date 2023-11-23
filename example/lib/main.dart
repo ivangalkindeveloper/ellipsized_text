@@ -32,36 +32,48 @@ class MyHomePage extends StatelessWidget {
             children: <Widget>[
               Text(
                 "EllipsisType: start",
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(
+                  fontSize: 18,
+                ),
               ),
               SizedBox(height: 8),
               EllipsizedText(
                 "Ellipsized Text Ellipsized Text Ellipsized Text Ellipsized Text Ellipsized Text",
                 type: EllipsisType.start,
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(
+                  fontSize: 24,
+                ),
               ),
               SizedBox(height: 16),
               Text(
                 "EllipsisType: middle",
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(
+                  fontSize: 18,
+                ),
               ),
               SizedBox(height: 8),
               EllipsizedText(
                 "Ellipsized Text Ellipsized Text Ellipsized Text Ellipsized Text Ellipsized Text",
                 type: EllipsisType.middle,
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(
+                  fontSize: 24,
+                ),
               ),
               SizedBox(height: 16),
               Text(
                 "EllipsisType: end",
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(
+                  fontSize: 18,
+                ),
               ),
               SizedBox(height: 8),
               EllipsizedText(
                 "Ellipsized Text Ellipsized Text Ellipsized Text Ellipsized Text Ellipsized Text",
                 type: EllipsisType.end,
                 ellipsis: "...",
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(
+                  fontSize: 24,
+                ),
               ),
             ],
           ),
