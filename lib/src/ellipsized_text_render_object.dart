@@ -27,7 +27,7 @@ class EllipsizedTextRenderObject extends RenderBox {
     this._textPainter = TextPainter(
       textDirection: widget.textDirection ?? textDirection,
       locale: widget.locale,
-      textScaleFactor: widget.textScaleFactor ?? 1.0,
+      textScaler: widget.textScaler ?? TextScaler.noScaling,
       textWidthBasis: widget.textWidthBasis ?? defaultTextStyle.textWidthBasis,
       textHeightBehavior:
           widget.textHeightBehavior ?? defaultTextStyle.textHeightBehavior,
@@ -69,7 +69,7 @@ class EllipsizedTextRenderObject extends RenderBox {
           (widget.textAlign ?? defaultTextStyle.textAlign) ?? TextAlign.start,
       textDirection: widget.textDirection ?? textDirection,
       locale: widget.locale,
-      textScaleFactor: widget.textScaleFactor,
+      textScaler: widget.textScaler,
       textWidthBasis: widget.textWidthBasis ?? defaultTextStyle.textWidthBasis,
       textHeightBehavior:
           widget.textHeightBehavior ?? defaultTextStyle.textHeightBehavior,

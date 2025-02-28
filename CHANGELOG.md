@@ -1,3 +1,7 @@
+## 2.0.0
+* textScaleFactor > textScaler;
+* Updating packages.
+
 ## 1.2.0
 * Addings strutStyle, locale, textScaleFactor, textWidthBasis, textHeightBehavior.
 

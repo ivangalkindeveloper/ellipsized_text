@@ -28,7 +28,7 @@ class EllipsizedText extends LeafRenderObjectWidget {
     this.textAlign,
     this.textDirection,
     this.locale,
-    this.textScaleFactor,
+    this.textScaler,
     this.textWidthBasis,
     this.textHeightBehavior,
   });
@@ -57,8 +57,8 @@ class EllipsizedText extends LeafRenderObjectWidget {
   /// Locale.
   final Locale? locale;
 
-  /// Text scale factor.
-  final double? textScaleFactor;
+  /// Text scaler.
+  final TextScaler? textScaler;
 
   /// Text width basis.
   final TextWidthBasis? textWidthBasis;

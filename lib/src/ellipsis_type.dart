@@ -1,25 +1,16 @@
-import 'package:collection/collection.dart';
-
 // Ellipsis types
 enum EllipsisType {
   start,
   middle,
   end;
 
-  static EllipsisType fromString(
+  static EllipsisType? fromString(
     String value,
-  ) {
-    final EllipsisType? result = EllipsisType.values.firstWhereOrNull(
-      (
-        EllipsisType element,
-      ) =>
-          element.name == value,
-    );
-
-    if (result == null) {
-      throw ArgumentError("Unknown Environment: $value");
-    }
-
-    return result;
-  }
+  ) =>
+      switch (value) {
+        'start' => EllipsisType.start,
+        'middle' => EllipsisType.middle,
+        'end' => EllipsisType.end,
+        _ => null,
+      };
 }
